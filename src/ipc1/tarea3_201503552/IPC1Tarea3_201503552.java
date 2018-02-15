@@ -207,29 +207,87 @@ public class IPC1Tarea3_201503552 {
                     int[][] notas=new int[6][6];
                     do{
                         System.out.println("1. Ingresar notas");
-                        System.out.println("2. Mostrar ordenados");
+                        System.out.println("2. Mostrar notas");
                         System.out.println("3. Menu principal");
                         
-                        int menu_mayor=scanner.nextInt();
+                        int menu_notas=scanner.nextInt();
                         
+                        switch(menu_notas){
+                            case 1://Ingresar Notas
+                                for(int i=0;i<6;i++){
+                                    System.out.println("Ingrese notas del estudiante "+(i+1));
+                                    notas[i][0]=i+1;
+                                    int total=0;
+                                    for(int j=1;j<5;j++){
+                                        boolean val_nota=true;
+                                        int nota=0;
+                                        do{
+                                            System.out.println("Nota "+j);    
+                                            nota=scanner.nextInt();
+                                            if(nota>=0 && nota<=100){//solo se puede ingresar numeros de 0 a 100 puntos
+                                                val_nota=false;
+                                            }
+                                            else{
+                                                val_nota=true;
+                                                System.out.println("El valor de la nota no es valido");
+                                            }
+                                        }while(val_nota);
+                                        notas[i][j]=nota;//ingresa la nota
+                                        total=total+notas[i][j];//suma cada nota
+                                    }
+                                    double promedio=total/4;//realiza el promedio
+                                    notas[i][5]=(int)Math.round(promedio);//redondea el promedio
+                                }
+                                System.out.println("Notas Ingresadas");
+                                break;
+                            
+                            case 2://Mostrar Notas
+                                
+                                System.out.println("Listado de Notas:");
+                                System.out.println();
+                                System.out.println("Id Nota1 Nota2 Nota3 Nota4 Promedio");
+                                                 // *1***100****84***100***100******100
+                                                 // *2****47***100*****7****78*******75
+                                for(int i=0;i<6;i++){
+                                    String espacio="";
+                                    System.out.print(" "+notas[i][0]);
+                                    for(int j=1;j<5;j++){
+                                        if(notas[i][j]>9 && notas[i][j]<100){
+                                            espacio=" ";
+                                        }
+                                        else if(notas[i][j]<=9){
+                                            espacio="  ";
+                                        }
+                                        else if(notas[i][j]==100){
+                                            espacio="";
+                                        }
+                                        System.out.print(espacio+"   "+notas[i][j]);   
+                                    }
+                                    if(notas[i][5]>9 && notas[i][5]<100){
+                                            espacio=" ";
+                                        }
+                                        else if(notas[i][5]<=9){
+                                            espacio="  ";
+                                        }
+                                        else if(notas[i][5]==100){
+                                            espacio="";
+                                        }
+                                    System.out.println(espacio+"      "+notas[i][5]);
+                                }
+                                break;
+                            
+                            case 3:
+                                val_promedio=false;
+                                break;
+                            
+                            default:
+                                System.out.println("El numero ingresado no es valido");
+                                
+                        }
                         
                         
                         
                     }while(val_promedio);
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     break;
                     
                 case 5://Salir
