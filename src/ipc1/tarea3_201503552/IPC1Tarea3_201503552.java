@@ -111,6 +111,49 @@ public class IPC1Tarea3_201503552 {
                     break;
                     
                 case 2://Contador de digitos
+                    boolean val_contador=true;
+                    int cont=0;//se crea la variable contador afuera para ser utilizado en varias partes
+                    do{
+                        //Menu contador de digitos
+                        System.out.println("1. Ingresar un numero");
+                        System.out.println("2. Mostrar un numero de digitos");
+                        System.out.println("3. Menu principal");
+                        
+                        int menu_contador=scanner.nextInt();
+                        
+                        switch (menu_contador){
+                            
+                            case 1://Ingresar un numero
+                                cont=0;//incializa el contador en 0 para evitar otros valores
+                                System.out.println("Ingrese un numero entero entre 0 y 100000:");
+                                int n=scanner.nextInt();
+                                if(n>=0 && n<=100000){//verifica que el rango este dentro del rango
+                                    if(n!=0){
+                                        while(n>0){
+                                            n=n/10;
+                                            cont++;//se incrementa cada vez que se divide el numero
+                                        }
+                                    }
+                                    else{//si el numero es 0 automaticamente devuelve 1
+                                        cont=1;
+                                    }
+                                }
+                                else{
+                                    System.out.println("El numero no esta dentro del rango");
+                                }
+                                break;
+                            case 2://Mostrar un numero de digitos
+                                    System.out.println("el numero tiene "+cont+" digitos");
+                                break;
+                            
+                            case 3://Menu principal
+                                val_contador=false;
+                                break;
+                                
+                            default:
+                                System.out.println("El numero ingresado no es valido");     
+                        }
+                    }while(val_contador);
                     break;
                     
                 case 3://Tres numeros de mayor a menor
