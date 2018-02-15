@@ -157,9 +157,79 @@ public class IPC1Tarea3_201503552 {
                     break;
                     
                 case 3://Tres numeros de mayor a menor
+                    boolean val_mayor=true;
+                    int[] Numeros=new int[3];
+                    do{
+                        //Menu contador de digitos
+                        System.out.println("1. Ingresar numeros");
+                        System.out.println("2. Mostrar ordenados");
+                        System.out.println("3. Menu principal");
+                        
+                        int menu_mayor=scanner.nextInt();
+                        
+                        switch(menu_mayor){
+                            case 1:
+                                for(int i=0;i<3;i++){//repito 3 veces la opcion de pedir un numero
+                                    System.out.println("Ingrese el digito "+(i+1));
+                                    Numeros[i]=scanner.nextInt();
+                                }
+                                int aux=0;
+                                for(int i=0;i<3;i++){
+                                    for(int j=i+1;j<3;j++){
+                                        if(Numeros[i]<Numeros[j]){//compara un numero del arreglo con el siguiente
+                                            aux=Numeros[i];
+                                            Numeros[i]=Numeros[j];
+                                            Numeros[j]=aux;//si el anterior es menor que el siguiente cambia posiciones
+                                        }
+                                    }
+                                }
+                                break;
+                                
+                            case 2://mostrar los numeros ordenados
+                                System.out.println("Numeros Ordenados:");
+                                for(int i=0;i<3;i++){
+                                    System.out.println(Numeros[i]);
+                                }
+                                break;
+                                
+                            case 3://menu principal
+                                val_mayor=false;
+                                break;
+                                
+                            default:
+                                System.out.println("El numero ingresado no es valido");
+                        }
+                    }while(val_mayor);
                     break;
                     
                 case 4://calcular el promedio
+                    boolean val_promedio=true;
+                    int[][] notas=new int[6][6];
+                    do{
+                        System.out.println("1. Ingresar notas");
+                        System.out.println("2. Mostrar ordenados");
+                        System.out.println("3. Menu principal");
+                        
+                        int menu_mayor=scanner.nextInt();
+                        
+                        
+                        
+                        
+                    }while(val_promedio);
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     break;
                     
                 case 5://Salir
