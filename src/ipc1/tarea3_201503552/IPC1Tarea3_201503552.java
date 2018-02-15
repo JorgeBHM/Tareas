@@ -47,12 +47,13 @@ public class IPC1Tarea3_201503552 {
                         int menu_usuario=scanner.nextInt();
                         switch (menu_usuario){
                             case 1://Ingresar
+                                
                                 System.out.println("Ingresar el usuario:");
                                 String usuario=scanner.next();
                                 boolean repetido=false;
                                 for(int i=0;i<5;i++){//verifico que no exista otro usuario igual
-                                    if(Usuarios[i]!=""){
-                                        if(Usuarios[i]==usuario){
+                                    if(Usuarios[i]!=null){
+                                        if(Usuarios[i].equalsIgnoreCase(usuario)){
                                             repetido=true;
                                             break;
                                         }
@@ -64,7 +65,7 @@ public class IPC1Tarea3_201503552 {
                                 else{//si no esta repetido ingresa el usuario
                                     boolean vacio=true;
                                     for(int i=0;i<5;i++){
-                                        if(Usuarios[i]==""){//verifica que haya espacio para ingresar el usuario
+                                        if(Usuarios[i]==null){//verifica que haya espacio para ingresar el usuario
                                             Usuarios[i]=usuario;
                                             System.out.println("Usuario Ingresado");
                                             vacio=true;
@@ -74,6 +75,7 @@ public class IPC1Tarea3_201503552 {
                                             vacio=false;
                                         }
                                     }
+                                            
                                     if(!vacio){//si se devolvio valor false muestra el mensaje y regresa al menu
                                         System.out.println("ya no hay espacio para crear un usuario");
                                     }
@@ -81,9 +83,21 @@ public class IPC1Tarea3_201503552 {
                                 break;
                                 
                             case 2://Mostrar Usuarios Ascendentes
+                                System.out.println("Usuarios en orden Ascendente:");
+                                for(int i=4;i>=0;i--){
+                                    if(Usuarios[i]!=null){
+                                        System.out.println((5-i)+". "+Usuarios[i]);
+                                    }
+                                }
                                 break;
                                 
                             case 3://Mostrar Usuarios descendentes
+                                System.out.println("Usuarios en orden Ascendente:");
+                                for(int i=0;i<5;i++){
+                                    if(Usuarios[i]!=null){
+                                        System.out.println((i+1)+". "+Usuarios[i]);
+                                    }
+                                }
                                 break;
                             
                             case 4://Menu principal
@@ -94,10 +108,6 @@ public class IPC1Tarea3_201503552 {
                                 System.out.println("El numero que ingreso no es valido");
                         }
                     }while(val_usuario);
-                    
-                    
-                    
-                    
                     break;
                     
                 case 2://Contador de digitos
